@@ -151,7 +151,7 @@ async function setupCamera() {
   video.srcObject = stream;
 
   return new Promise((resolve) => {
-    video.onloadedmetadata = () => {
+    video.onloadeddata = () => {
       resolve(video);
     };
   });
