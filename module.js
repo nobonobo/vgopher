@@ -334,11 +334,6 @@ async function startGopher() {
   if (state.net != null) {
     state.net.dispose();
   }
-  if (document.getElementById("video") == undefined) {
-    let video = document.createElement("video");
-    video.id = "video";
-    document.body.appendChild(video);
-  }
   const video = await loadVideo();
   const net = await posenet.load({
     algorithm: "single-pose",
