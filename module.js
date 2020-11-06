@@ -327,6 +327,10 @@ async function detectPoseInRealTime(video, net) {
 let state = { net: null };
 
 async function startGopher() {
+  let btn = document.getElementById("btn");
+  if (btn != undefined) {
+    btn.parentNode.removeChild(btn);
+  }
   if (state.net != null) {
     state.net.dispose();
   }
@@ -372,3 +376,5 @@ window.addEventListener("keydown", async (ev) => {
     }
   }
 });
+
+window.startGopher = startGopher;
