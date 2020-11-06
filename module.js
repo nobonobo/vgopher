@@ -151,7 +151,7 @@ async function setupCamera() {
   video.srcObject = stream;
 
   return new Promise((resolve) => {
-    video.onloadeddata = () => {
+    video.onloadedmetadata = () => {
       resolve(video);
     };
   });
@@ -160,7 +160,11 @@ async function setupCamera() {
 async function loadVideo() {
   const video = await setupCamera();
   video.play();
-  return video;
+  return new Promise((resolve) => {
+    video.onloadeddata = () => {
+      resolve(video);
+    };
+  });
 }
 
 class Transform {
