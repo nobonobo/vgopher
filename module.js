@@ -106,11 +106,11 @@ camera.position.z = 400;
 
 let scene = new THREE.Scene();
 let renderer = new THREE.WebGLRenderer({
-  alpha: true,
   antialias: true,
 });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x00ff00, 1.0);
 document.body.appendChild(renderer.domElement);
 
 const gopher = makeGopher();
